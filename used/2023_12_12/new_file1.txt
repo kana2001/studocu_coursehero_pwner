@@ -1,2 +1,0 @@
-This is new_file1.txt!
-It didn't exist before, but now it does.
