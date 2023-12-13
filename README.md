@@ -1,7 +1,7 @@
 # studocu_coursehero_pwner
 
 ## what it does
-generates a 10 random essays for you to upload to coursehero/studocu
+generates 10 random essays for you to upload to coursehero/studocu
 
 ## how to build
 - `python -m venv myenv`
