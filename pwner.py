@@ -1,8 +1,9 @@
 import os
+from dotenv import load_dotenv
 from openai import OpenAI
 
-# Replace 'YOUR_API_KEY' with your actual API key
-api_key = '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'
+load_dotenv()
+api_key = os.getenv("API_KEY")
 client = OpenAI(api_key=api_key)
 
 stream = client.chat.completions.create(
@@ -33,4 +34,4 @@ file_path = os.path.join(directory, file_name)
 
 with open(file_path, "w") as file:
     file.write(essay_content)
-print(f"\nThe essay has been saved to {file_path}")
+print(f"\n\nThe essay has been saved to {file_path}")
