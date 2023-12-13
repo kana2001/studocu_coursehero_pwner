@@ -1,23 +1,32 @@
+import os
 from openai import OpenAI
 
 # Replace 'YOUR_API_KEY' with your actual API key
 api_key = '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'
 client = OpenAI(api_key=api_key)
 
-def chat_with_gpt(prompt):
-    response = client.completions.create(
-        model="text-davinci-002",
-        prompt=prompt,
-        max_tokens=4000  # Set a large max_tokens value
-    )
-    return response.choices[0].text
+stream = client.chat.completions.create(
+    model="gpt-4",
+    messages=[{"role": "user", "content": "Write a random essay"}],
+    stream=True,
+)
 
-# Your concise prompt
-prompt = "Nowadays, it is almost impossible to imagine our lives without technology. We use it at home, at work, when we travel, when we communicate with friends and family. It has become an integral part of our lives."
+base_file_name = "new_file"
+counter = 1
 
-# Make a single API call to generate the full essay
-essay_response = chat_with_gpt(f"You: {prompt}\n")
+while True:
+    file_name = f"{base_file_name}{counter}.doc"
 
-# Print or save the complete essay response
-print("Complete Essay:")
-print(essay_response)
+    if not os.path.exists(file_name):
+        break
+
+    counter += 1
+
+with open(file_name, "w") as file:
+    for chunk in stream:
+        if chunk.choices[0].delta.content is not None:
+            # file.write(f"It didn't exist before, but now it does.\n")
+            print(chunk.choices[0].delta.content, end="")
+    
+
+
