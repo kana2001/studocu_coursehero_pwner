@@ -1,7 +1,7 @@
 # studocu_coursehero_pwner
 
 ## what it does
-generates a random essay for you to upload to coursehero/studocu
+generates a 10 random essays for you to upload to coursehero/studocu
 
 ## how to build
 - `python -m venv myenv`
@@ -11,4 +11,5 @@ generates a random essay for you to upload to coursehero/studocu
 - fill out `API_KEY=` value with your OpenAI api key 
 
 ## script usage
-    python ./pwner.py
+- `./run.sh`
+- or to generate one essay at a time: `python ./pwner.py`

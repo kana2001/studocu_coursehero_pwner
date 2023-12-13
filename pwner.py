@@ -34,4 +34,4 @@ file_path = os.path.join(directory, file_name)
 
 with open(file_path, "w") as file:
     file.write(essay_content)
-print(f"\n\nThe essay has been saved to {file_path}")
+print(f"\n\nThe essay has been saved to {file_path}\n")
