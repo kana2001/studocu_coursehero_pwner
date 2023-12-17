@@ -11,5 +11,5 @@ generates 10 random essays for you to upload to coursehero/studocu. Files are sa
 - fill out `API_KEY=` value with your OpenAI api key 
 
 ## script usage
-- `./run.sh`
-- or to generate one essay at a time: `python ./pwner.py`
+- `python ./pwner.py`
+to generate 10 essays at a time
